@@ -69,7 +69,7 @@ public class mainScenario_Test {
 
         cartPage.clickCheckout();
 
-        Assert.assertTrue(checkoutPage.checkoutHeaderTextExists());
+        Assert.assertTrue(checkoutPage.continueToBillingButtonDisplayed());
 
     }
 

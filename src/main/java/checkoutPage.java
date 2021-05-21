@@ -24,6 +24,9 @@ public class checkoutPage {
     @FindBy(xpath = "//label[@for='emailConfirm']//li[text()='This field is invalid']")
     private WebElement lowerAlert;
 
+    @FindBy(xpath = "//button[text()='Continue to Billing']")
+    private WebElement continueToBillingButton;
+
 
 
 
@@ -41,6 +44,7 @@ public class checkoutPage {
 
     public boolean upperAlertShowedUp (){ return upperAlert.isDisplayed();}
     public boolean lowerAlertShowedUp (){ return lowerAlert.isDisplayed();}
+    public boolean continueToBillingButtonDisplayed (){ return continueToBillingButton.isDisplayed();}
 
 
 
