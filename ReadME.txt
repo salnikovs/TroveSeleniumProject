@@ -43,4 +43,6 @@
  * mvn clean -Dtest=productDescription_Test test    - stands for product descrption page test
  * mvn clean -Dtest=cartPage_Test test              - stands for cart page testing
  * mvn clean -Dtest=checkoutPage_Test test          - stands for checkout page testing
+
+ to run all tests at once simply run : mvn clean test
  
