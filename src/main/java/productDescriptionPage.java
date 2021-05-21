@@ -51,7 +51,7 @@ public class productDescriptionPage {
     // action methods
 
     public productDescriptionPage clickSize () {
-        sizeButtons.get(0).click();
+        sizeButtons.get(1).click();
         return this;
     }
     public productDescriptionPage clickCondition () {

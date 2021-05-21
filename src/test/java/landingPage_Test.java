@@ -16,7 +16,7 @@ public class landingPage_Test {
     @Before
     public void setUp() {
 
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\eugen\\Documents\\chromedriver\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -25,20 +25,20 @@ public class landingPage_Test {
     }
 
        @Test
-       public void test1LandingPage () {
+       public void test1LandingPage () {                 // Check the tab is actually available
            landingPage landingPage = PageFactory.initElements(driver, landingPage.class);
            Assert.assertTrue(landingPage.womensTabIsDisplayed());
        }
 
        @Test
-       public void test2LandingPage () {
+       public void test2LandingPage () {                  // Check Sandals department is in there
            landingPage landingPage = PageFactory.initElements(driver, landingPage.class);
            landingPage.clickWomenstab();
            Assert.assertTrue(landingPage.sandalsTabIsDisplayed());
        }
 
        @Test
-       public void test3LandingPage () {
+       public void test3LandingPage () {                 // proceed to Sandals department and check if you are on the right page
            landingPage landingPage = PageFactory.initElements(driver, landingPage.class);
            landingPage.proceedToSandalsAndWaterShoes();
            Assert.assertTrue(landingPage.sandalsShoesFilterIsDisplayed());

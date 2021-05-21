@@ -18,7 +18,7 @@ public class shoesAndFilters_Test {
     @Before
     public void setUp() {
 
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\eugen\\Documents\\chromedriver\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -27,7 +27,7 @@ public class shoesAndFilters_Test {
     }
 
     @Test
-    public void test1PDP ()  {            // Excellent size 7 Black
+    public void test1shoesSelectionAndFilters ()  {           // Check if Excellent condition filter works
         landingPage landingPage = PageFactory.initElements(driver, landingPage.class);
         shoesAndFilters shoesAndFilters = PageFactory.initElements(driver, shoesAndFilters.class);
         landingPage.proceedToSandalsAndWaterShoes();
@@ -37,7 +37,7 @@ public class shoesAndFilters_Test {
     }
 
     @Test
-    public void test2PDP () {            // lightly Worn size 7 Black
+    public void test2shoesSelectionAndFilters () {            // Check if Lightly Worn condition filter works
         landingPage landingPage = PageFactory.initElements(driver, landingPage.class);
         shoesAndFilters shoesAndFilters = PageFactory.initElements(driver, shoesAndFilters.class);
         landingPage.proceedToSandalsAndWaterShoes();
@@ -46,7 +46,7 @@ public class shoesAndFilters_Test {
     }
 
     @Test
-    public void test3PDP () {           // Moderately Worn size 7 Black
+    public void test3shoesSelectionAndFilters () {           // Check if Moderate Worn condition filter works
         landingPage landingPage = PageFactory.initElements(driver, landingPage.class);
         shoesAndFilters shoesAndFilters = PageFactory.initElements(driver, shoesAndFilters.class);
         landingPage.proceedToSandalsAndWaterShoes();
@@ -55,7 +55,7 @@ public class shoesAndFilters_Test {
     }
 
     @Test
-    public void test4PDP () {
+    public void test4shoesSelectionAndFilters () {           // Check if Black color filter works
         landingPage landingPage = PageFactory.initElements(driver, landingPage.class);
         shoesAndFilters shoesAndFilters = PageFactory.initElements(driver, shoesAndFilters.class);
         landingPage.proceedToSandalsAndWaterShoes();
@@ -63,7 +63,7 @@ public class shoesAndFilters_Test {
         Assert.assertTrue(shoesAndFilters.colorFilterBlackIsDisplayed());
     }
     @Test
-    public void test5PDP () {
+    public void test5shoesSelectionAndFilters () {          // Check if Blue Color filter works
         landingPage landingPage = PageFactory.initElements(driver, landingPage.class);
         shoesAndFilters shoesAndFilters = PageFactory.initElements(driver, shoesAndFilters.class);
         landingPage.proceedToSandalsAndWaterShoes();
@@ -72,7 +72,7 @@ public class shoesAndFilters_Test {
     }
 
     @Test
-    public void test6PDP () {
+    public void test6shoesSelectionAndFilters () {          // Check if size filter works
         landingPage landingPage = PageFactory.initElements(driver, landingPage.class);
         shoesAndFilters shoesAndFilters = PageFactory.initElements(driver, shoesAndFilters.class);
         landingPage.proceedToSandalsAndWaterShoes();
@@ -80,7 +80,7 @@ public class shoesAndFilters_Test {
         Assert.assertTrue(shoesAndFilters.sizeFilter7IsDisplayed());
     }
     @Test
-    public void test7PDP () {
+    public void test7shoesSelectionAndFilters () {          // Check if all above filters are working all together
         landingPage landingPage = PageFactory.initElements(driver, landingPage.class);
         shoesAndFilters shoesAndFilters = PageFactory.initElements(driver, shoesAndFilters.class);
         landingPage.proceedToSandalsAndWaterShoes();

@@ -16,7 +16,7 @@ public class cartPage_Test {
     @Before
     public void setUp() {
 
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\eugen\\Documents\\chromedriver\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -25,14 +25,16 @@ public class cartPage_Test {
     }
 
     @Test
-    public void test1PDP ()  {             // adding a new item
+    public void test1CartPageTest ()  {             // adding a new item
         landingPage landingPage = PageFactory.initElements(driver, landingPage.class);
         shoesAndFilters shoesAndFilters = PageFactory.initElements(driver, shoesAndFilters.class);
         productDescriptionPage productDescriptionPage = PageFactory.initElements(driver, productDescriptionPage.class);
         cartPage cartPage = PageFactory.initElements(driver, cartPage.class);
+
+
         landingPage.proceedToSandalsAndWaterShoes();
-        shoesAndFilters.filtersSet3();   // Moderately Worn size 7 Black
-        shoesAndFilters.selectShoeItemInTheGrid2();
+        shoesAndFilters.filtersSet2();
+        shoesAndFilters.selectShoeItemInTheGrid1();
         productDescriptionPage.clickSize();
         productDescriptionPage.clickCondition();
         productDescriptionPage.clickAddToCart();
@@ -40,38 +42,41 @@ public class cartPage_Test {
 
         Assert.assertEquals("1 item", cartPage.numberOfItemsText());
 
-
     }
 
 
     @Test
-    public void test2PDP () throws InterruptedException {                    // removing that item
+    public void test2CartPageTest () throws InterruptedException {                    // removing that item
         landingPage landingPage = PageFactory.initElements(driver, landingPage.class);
         shoesAndFilters shoesAndFilters = PageFactory.initElements(driver, shoesAndFilters.class);
         productDescriptionPage productDescriptionPage = PageFactory.initElements(driver, productDescriptionPage.class);
         cartPage cartPage = PageFactory.initElements(driver, cartPage.class);
+
         landingPage.proceedToSandalsAndWaterShoes();
-        shoesAndFilters.filtersSet1();   // Moderately Worn size 7 Black
+        shoesAndFilters.filtersSet1();
         shoesAndFilters.selectShoeItemInTheGrid2();
         productDescriptionPage.clickSize();
         productDescriptionPage.clickCondition();
         productDescriptionPage.clickAddToCart();
         productDescriptionPage.clickViewYourCart();
-        Thread.sleep(5000);
+        Thread.sleep(3000);
+
         cartPage.clickRemoveTheLastItem();
+
         Assert.assertEquals("You have no items in your shopping cart.",cartPage.noItemsMessageText());
 
     }
 
 
     @Test
-    public void test3PDP () throws InterruptedException {                    // removing the second added item
+    public void test3CartPageTest () throws InterruptedException {                    // removing the second added item
         landingPage landingPage = PageFactory.initElements(driver, landingPage.class);
         shoesAndFilters shoesAndFilters = PageFactory.initElements(driver, shoesAndFilters.class);
         productDescriptionPage productDescriptionPage = PageFactory.initElements(driver, productDescriptionPage.class);
         cartPage cartPage = PageFactory.initElements(driver, cartPage.class);
+
         landingPage.proceedToSandalsAndWaterShoes();
-        shoesAndFilters.filtersSet2();   // Moderately Worn size 7 Black
+        shoesAndFilters.filtersSet4();
         shoesAndFilters.selectShoeItemInTheGrid2();
         productDescriptionPage.clickSize();
         productDescriptionPage.clickCondition();
@@ -82,13 +87,14 @@ public class cartPage_Test {
         driver.navigate().back();
         driver.navigate().back();
 
-        shoesAndFilters.filtersSet4();
+        shoesAndFilters.filtersSet5();
         shoesAndFilters.selectShoeItemInTheGrid2();
         productDescriptionPage.clickSize();
         productDescriptionPage.clickCondition();
         productDescriptionPage.clickAddToCart();
         productDescriptionPage.clickViewYourCart();
 
+        Thread.sleep(2000);
         cartPage.clickRemoveTheLastItem();
 
         Assert.assertEquals("1 item", cartPage.numberOfItemsText());
@@ -96,31 +102,33 @@ public class cartPage_Test {
     }
 
     @Test
-    public void test4PDP () throws InterruptedException {                    // removing the second added item and proceeding to checkout
+    public void test4CartPageTest () throws InterruptedException {                    // removing the second added item and proceeding to checkout
         landingPage landingPage = PageFactory.initElements(driver, landingPage.class);
         shoesAndFilters shoesAndFilters = PageFactory.initElements(driver, shoesAndFilters.class);
         productDescriptionPage productDescriptionPage = PageFactory.initElements(driver, productDescriptionPage.class);
         cartPage cartPage = PageFactory.initElements(driver, cartPage.class);
         checkoutPage checkoutPage = PageFactory.initElements(driver, checkoutPage.class);
+
         landingPage.proceedToSandalsAndWaterShoes();
-        shoesAndFilters.filtersSet5();   // Moderately Worn size 7 Black
+        shoesAndFilters.filtersSet4();
         shoesAndFilters.selectShoeItemInTheGrid2();
         productDescriptionPage.clickSize();
         productDescriptionPage.clickCondition();
         productDescriptionPage.clickAddToCart();
         productDescriptionPage.clickViewYourCart();
-        Thread.sleep(3000);
+        Thread.sleep(2000);
 
         driver.navigate().back();
         driver.navigate().back();
 
-        shoesAndFilters.filtersSet6();
+        shoesAndFilters.filtersSet5();
         shoesAndFilters.selectShoeItemInTheGrid2();
         productDescriptionPage.clickSize();
         productDescriptionPage.clickCondition();
         productDescriptionPage.clickAddToCart();
         productDescriptionPage.clickViewYourCart();
 
+        Thread.sleep(2000);
         cartPage.clickRemoveTheLastItem();
 
         cartPage.clickCheckout();
@@ -130,10 +138,10 @@ public class cartPage_Test {
     }
 
 
-    @After
-    public void tearDown (){
-        driver.quit();
-    }
+    //@After
+    //public void tearDown (){
+    //    driver.quit();
+    //}
 
 
 

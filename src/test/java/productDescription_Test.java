@@ -19,7 +19,7 @@ public class productDescription_Test {
     @Before
     public void setUp() {
 
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\eugen\\Documents\\chromedriver\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -29,24 +29,24 @@ public class productDescription_Test {
     }
 
     @Test
-    public void test1PDP ()  {
+    public void test1PDP ()  {                    // Check if product description page has Excellent Condition button
         landingPage landingPage = PageFactory.initElements(driver, landingPage.class);
         shoesAndFilters shoesAndFilters = PageFactory.initElements(driver, shoesAndFilters.class);
         productDescriptionPage productDescriptionPage = PageFactory.initElements(driver, productDescriptionPage.class);
         landingPage.proceedToSandalsAndWaterShoes();
-        shoesAndFilters.filtersSet1();   // Excellent size 7 Black
+        shoesAndFilters.filtersSet1();
         shoesAndFilters.selectShoeItemInTheGrid2();
         Assert.assertTrue(productDescriptionPage.excellentLabelIsDisplayed());
 
     }
 
     @Test
-    public void test2PDP () {
+    public void test2PDP () {                 // Check if product description page has Lightly Worn Condition button
         landingPage landingPage = PageFactory.initElements(driver, landingPage.class);
         shoesAndFilters shoesAndFilters = PageFactory.initElements(driver, shoesAndFilters.class);
         productDescriptionPage productDescriptionPage = PageFactory.initElements(driver, productDescriptionPage.class);
         landingPage.proceedToSandalsAndWaterShoes();
-        shoesAndFilters.filtersSet2();   // lightly Worn size 7 Blue
+        shoesAndFilters.filtersSet2();
         shoesAndFilters.selectShoeItemInTheGrid1();
         Assert.assertTrue(productDescriptionPage.lightlyWornLabelIsDisplayed());
 
@@ -58,7 +58,7 @@ public class productDescription_Test {
         shoesAndFilters shoesAndFilters = PageFactory.initElements(driver, shoesAndFilters.class);
         productDescriptionPage productDescriptionPage = PageFactory.initElements(driver, productDescriptionPage.class);
         landingPage.proceedToSandalsAndWaterShoes();
-        shoesAndFilters.filtersSet2();   // lightly Worn size 7 Blue
+        shoesAndFilters.filtersSet2();
         shoesAndFilters.selectShoeItemInTheGrid1();
         productDescriptionPage.clickAddToCart();
         Assert.assertEquals("Please select a size and a condition",productDescriptionPage.alertConditionAndSizeText());
@@ -71,7 +71,7 @@ public class productDescription_Test {
         shoesAndFilters shoesAndFilters = PageFactory.initElements(driver, shoesAndFilters.class);
         productDescriptionPage productDescriptionPage = PageFactory.initElements(driver, productDescriptionPage.class);
         landingPage.proceedToSandalsAndWaterShoes();
-        shoesAndFilters.filtersSet1();   // lightly Worn size 7 Blue
+        shoesAndFilters.filtersSet1();
         shoesAndFilters.selectShoeItemInTheGrid1();
         productDescriptionPage.clickConditionExcellent();
         productDescriptionPage.clickAddToCart();

@@ -35,7 +35,7 @@ public class cartPage {
     // action methods
 
     public cartPage clickRemoveTheLastItem () {
-        removeButtons.get(removeButtons.size()-1);
+        removeButtons.get(removeButtons.size()-1).click();
         return this;
     }
 

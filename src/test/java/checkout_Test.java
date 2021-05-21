@@ -16,7 +16,7 @@ public class checkout_Test {
     @Before
     public void setUp() {
 
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\eugen\\Documents\\chromedriver\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -53,6 +53,7 @@ public class checkout_Test {
         cartPage.clickRemoveTheLastItem();
 
         cartPage.clickCheckout();
+        //
 
     }
 
