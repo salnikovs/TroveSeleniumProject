@@ -18,6 +18,15 @@ public class checkoutPage {
     @FindBy(xpath = "//input[@name='email']")
     private List<WebElement> emailfields;
 
+
+    @FindBy(xpath = "//label[@for='email']//li[text()='This field is invalid']")
+    private WebElement upperAlert;
+    @FindBy(xpath = "//label[@for='emailConfirm']//li[text()='This field is invalid']")
+    private WebElement lowerAlert;
+
+
+
+
     public checkoutPage fillInEmailFieldFirst (String email1) {
         emailfields.get(0).sendKeys(email1);
         return this;
@@ -29,23 +38,24 @@ public class checkoutPage {
 
 
     public boolean checkoutHeaderTextExists (){ return checkoutHeader.isDisplayed();}
+
+    public boolean upperAlertShowedUp (){ return upperAlert.isDisplayed();}
+    public boolean lowerAlertShowedUp (){ return lowerAlert.isDisplayed();}
+
+
+
     public String checkoutHeaderText () { return checkoutHeader.getText();}
 
 
 
-    public checkoutPage fillInEmailFieldsCorrectly () {
-        this.fillInEmailFieldFirst("eugene.test@gmail.com");
-        this.fillInEmailFieldFirst("eugene.test@gmail.com");
+    public checkoutPage fillInEmailFields (String upperEmail, String lowerEmail) {
+        this.fillInEmailFieldFirst(upperEmail);
+        this.fillInEmailFieldFirst(lowerEmail);
         return new checkoutPage(driver);
 
     }
 
-    public checkoutPage fillInEmailFieldsIncorrectly () {
-        this.fillInEmailFieldFirst("eugene.test@gmail.com");
-        this.fillInEmailFieldFirst("eugene.test@gmail.com");
-        return new checkoutPage(driver);
 
-    }
 
 
 
